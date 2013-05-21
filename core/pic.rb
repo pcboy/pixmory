@@ -63,6 +63,7 @@ module Pixmory
         end
         return pic if response && response.code.to_i == 200
       end
+      nil
     end
 
     def url_for_word(word)
