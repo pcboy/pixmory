@@ -25,6 +25,7 @@ require 'google-search'
 require 'trollop'
 
 require 'rtatoeba'
+
 require_relative 'config'
 require_relative 'core/card'
 require_relative 'core/deck_builder'
@@ -63,15 +64,23 @@ OPTS = Trollop::options do
   opt :wordfile, "File containing words and their translation comma separated",
     :type => String
   opt :deckname, "Name of the deck you want to create", :type => String
-  opt :from_lang, "Source language in the wordfile (e.g kor,eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)", :type => String
-  opt :to_lang, "Destination language in the wordfile (e.g eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)", :type => String
+  opt :from_lang, "Source language in the wordfile" \
+    "(e.g kor,eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)",
+    :type => String
+  opt :to_lang, "Destination language in the wordfile" \
+    "(e.g eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)",
+    :type => String
 end
 
-Trollop::die :wordfile, "must exists and be readable" unless File.exists?(OPTS[:wordfile])
-Trollop::die :deckname, "must be specified" if OPTS[:deckname].strip.empty?
-Trollop::die :from_lang, "must be specified" if OPTS[:from_lang].strip.empty?
-Trollop::die :to_lang, "must be specified" if OPTS[:to_lang].strip.empty?
+unless OPTS[:wordfile] && File.exists?(OPTS[:wordfile])
+  Trollop::die :wordfile, "must exists and be readable" 
+end
 
+[:deckname, :from_lang, :to_lang].map do |required|
+  if OPTS[required].nil? || OPTS[required].strip.empty?
+    Trollop::die required, "must be specified" 
+  end
+end
 
 pix = Pixmory::Pixmory.new(wordfile: OPTS[:wordfile], deckname: OPTS[:deckname],
                            from_lang: OPTS[:from_lang], to_lang: OPTS[:to_lang])
