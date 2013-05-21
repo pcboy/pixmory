@@ -38,12 +38,12 @@ OPTS = Trollop::options do
 end
 
 unless OPTS[:wordfile] && File.exists?(OPTS[:wordfile])
-  Trollop::die :wordfile, "must exists and be readable" 
+  Trollop::die :wordfile, "must exists and be readable"
 end
 
 [:from_lang, :to_lang, :output].map do |required|
   if OPTS[required].nil? || OPTS[required].strip.empty?
-    Trollop::die required, "must be specified" 
+    Trollop::die required, "must be specified"
   end
 end
 

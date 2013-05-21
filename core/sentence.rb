@@ -43,7 +43,6 @@ module Pixmory
       target = fullpath
       unless File.exists?(target)
         ap "#{filename} doesn't exist"
-        ap sample_sentences
         if sentence = sample_sentences
           File.open(target, "wb") do |f|
             f << sentence
@@ -70,11 +69,13 @@ module Pixmory
                                 .select{|x| x[0].slice(/#{@to_word}/i)}
       shortest = shortest_value.flatten.first
       return '' if shortest.nil?
+      english = sentences.select{|k,v| v.include?(shortest)}.keys.first
+
       if @to_lang == 'jpn'
         shortest = Furigana::Formatter::Text.format(shortest,
                                   Furigana::Reader.new.reading(shortest))
       end
-      english = sentences.select{|k,v| v.include?(shortest)}.keys.first
+      ap [english, shortest]
       if english.nil? then '' else "<br>" + [english, shortest].join("<br>") end
     end
   end
