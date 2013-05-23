@@ -6,7 +6,7 @@ Pixmory is a language learning hack tool. Pixmory is the contraction of Pictures
 As an avid user of [spaced repetition software](https://en.wikipedia.org/wiki/Spaced_repetition#Software),
 I know how hard it is to make good decks. That's why I made pixmory.
 
-Having a picture for each flashcard is incredibly helpful for memorization ([Picture Recognition improves with subsequent verbal information](http://www.arts.uwaterloo.ca/~cmacleod/Research/Articles/jepwiseman85.pdf)).  
+Having a picture for each flashcard is incredibly helpful for memorization ([Picture Recognition improves with subsequent verbal information](http://www.arts.uwaterloo.ca/~cmacleod/Research/Articles/jepwiseman85.pdf), [Picture Superiority Effect](http://en.wikipedia.org/wiki/Picture_superiority_effect)).  
 We also know that learning words in context is incredibly important.  
 That's why pixmory is not only downloading pictures for your words but also adds a sentence for each flashcard (if possible).  
 But that's not all. Pixmory also adds the pronounciation (when available) of the word on each flaschard!  
