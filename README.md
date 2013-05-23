@@ -83,15 +83,16 @@ How?
        --help, -h:           Show this message
 
 Example:
-    `$> bundle exec ruby pixmory.rb -w translated_words -d deck.korean -f eng -t kor`
+    `$> bundle exec ruby pixmory.rb -w translated\_words -d deck.korean -f eng -t kor`
 
 After a few minutes in the deck.korean folder, you'll be able to find a few files:
 
     $> ls deck.korean
     deck.korean.media deck.korean.txt tmp
 
-Now this is simple. You need to copy all the media files inside your own anki collection. Usually that means a `cp -rf deck.korean.media/* ~/Anki/User\\ 1/collection.media/`.
-Next step is actually importing the deck.
+Now this is simple. You need to copy all the media files inside your own anki collection.
+Usually that means a `cp -rf deck.korean.media/* ~/Anki/User\ 1/collection.media/`.
+Next step is actually importing the deck.  
 Open Anki, go to File, Import, choose the deck.korean.txt file, don't forget to tick the "Allow HTML in fields" option, and choose the destinaton deck.
 
 That should work now!
@@ -99,6 +100,11 @@ That should work now!
 ## Notes
 * Pixmory is not perfect. Be careful. I would say that 98% of the time this is really working well. But it can be messed up with homonyms for instance.
 * The free Forvo API account authorize a limited amount of connections each 24 hours. If you have a lot of words you may need to complete the pixmory deck generation process in multiple days. This is not a big problem, when pixmory keep track of which pronunciation has been downloaded or not. So just restart the script again, let it complete, and hopefully soon you'll have all the pronunciations you need.
+
+
+## License
+Pixmory is released under the [Do What The Fuck You Want To Public License](http://www.wtfpl.net/) by Sam Hocevar.
+
 
 ## Contributing!
 
