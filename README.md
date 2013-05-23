@@ -83,7 +83,7 @@ How?
        --help, -h:           Show this message
 
 Example:
-    `$> bundle exec ruby pixmory.rb -w translated\_words -d deck.korean -f eng -t kor`
+    `$> bundle exec ruby pixmory.rb -w translated_words -d deck.korean -f eng -t kor`
 
 After a few minutes in the deck.korean folder, you'll be able to find a few files:
 
