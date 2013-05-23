@@ -1,26 +1,50 @@
 ### Pixmory
 
+## Introduction
+
+Pixmory is a language learning hack tool. Pixmory is the contraction of Pictures and Memory.  
+As an avid user of [spaced repetition software](https://en.wikipedia.org/wiki/Spaced_repetition#Software),
+I know how hard it is to make good decks. That's why I made pixmory.
+
+Having a picture for each flashcard is incredibly helpful for memorization ([Picture Recognition improves with subsequent verbal information](http://www.arts.uwaterloo.ca/~cmacleod/Research/Articles/jepwiseman85.pdf)).  
+We also know that learning words in context is incredibly important.  
+That's why pixmory also adds a sentence for each flashcard (if possible).  
+But that's not all. Pixmory also adds the pronounciation (when available) of the word on each flaschard!  
+Finally, pixmory has furigana support when generating decks to Japanese language.
+
+Pixmory is still in alpha stage, but usable right now.  
+It's just the start. A full suite of tools will come in a near future. =)
+
+
 ## Requirements
 * Ruby >= 2.0
 * Mecab (Optional: For Japanese furigana support. Should be in your package manager)
+* A Wordreference API Key
+* A forvo API Key
 
 ## Installation
     git clone https://github.com/pcboy/pixmory
     cd pixmory && bundle install
 
+Register to http://api.forvo.com/ to get a Forvo API key (free account available).  
+Go to the [Word reference API registration page](http://www.wordreference.com/docs/APIregistration.aspx) and get an API key (Totally free, thanks WR!)
+
+When you have both, put each one inside config.rb:
+
+``` ruby
+    module Pixmory
+      FORVO_API_KEY = ''
+      WORDREFERENCE_API_KEY = ''
+    end
+```
+
 ## Usage
 
-For fabulous anki decks
+### For basic translation before building a beautiful deck
 
-    pcboy@home pixmory % bundle exec ruby pixmory.rb -h
-    Options:
-       --wordfile, -w <s>:   File containing words and their translation comma separated
-       --deckname, -d <s>:   Name of the deck you want to create
-       --from-lang, -f <s>:  Source language in the wordfile(e.g kor,eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
-       --to-lang, -t <s>:    Destination language in the wordfile(e.g eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
-       --help, -h:           Show this message
+Pixmory includes a nice little tool to translate list of words to your target language using WordReference.
 
-For basic translation before building a beautiful deck
+I'm including a sample\_words text file which contains 346 of the most used basic and useful words in english (lot of action words, colors, adjectives etc).
 
     pcboy@home pixmory % bundle exec ruby translate.rb -h 
     Options:
@@ -30,12 +54,56 @@ For basic translation before building a beautiful deck
         --output, -o <s>:     Destination filename
         --help, -h:           Show this message
 
+I wanted to translate this wordfile to korean, so I basically did:
 
-## Contributing
+    $> bundle exec ruby translate.rb -w sample_words -f ko -t ko -o translated_words.korean
+
+After a few minutes, each word is translated and the sample\_words.korean looks like that:
+
+    to work, 일하다
+    to play,놀다 /  놀이하다
+    to go,가다
+    to walk,걷다 /  걸어가다
+
+Now that we have this awesome translated wordfile, we can go to the next step, creating a fabulous Anki deck.
+
+### For fabulous anki decks
+Pixmory can create anki decks looking like that:
+
+![A typical pixmory generated card. English to Korean.](/img/deck.jpg "A typical pixmory generated card. English to Korean")
+
+How?
+
+    pcboy@home pixmory % bundle exec ruby pixmory.rb -h
+    Options:
+       --wordfile, -w <s>:   File containing words and their translation comma separated
+       --deckname, -d <s>:   Name of the deck you want to create
+       --from-lang, -f <s>:  Source language in the wordfile(e.g kor,eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+       --to-lang, -t <s>:    Destination language in the wordfile(e.g eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+       --help, -h:           Show this message
+
+Example:
+    `$> bundle exec ruby pixmory.rb -w translated_words -d deck.korean -f eng -t kor`
+
+After a few minutes in the deck.korean folder, you'll be able to find a few files:
+
+    $> ls deck.korean
+    deck.korean.media deck.korean.txt tmp
+
+Now this is simple. You need to copy all the media files inside your own anki collection. Usually that means a `cp -rf deck.korean.media/* ~/Anki/User\\ 1/collection.media/`.
+Next step is actually importing the deck.
+Open Anki, go to File, Import, choose the deck.korean.txt file, don't forget to tick the "Allow HTML in fields" option, and choose the destinaton deck.
+
+That should work now!
+
+## Notes
+* Pixmory is not perfect. Be careful. I would say that 98% of the time this is really working well. But it can be messed up with homonyms for instance.
+* The free Forvo API account authorize a limited amount of connections each 24 hours. If you have a lot of words you may need to complete the pixmory deck generation process in multiple days. This is not a big problem, when pixmory keep track of which pronunciation has been downloaded or not. So just restart the script again, let it complete, and hopefully soon you'll have all the pronunciations you need.
+
+## Contributing!
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
