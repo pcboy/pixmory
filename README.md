@@ -8,7 +8,7 @@ I know how hard it is to make good decks. That's why I made pixmory.
 
 Having a picture for each flashcard is incredibly helpful for memorization ([Picture Recognition improves with subsequent verbal information](http://www.arts.uwaterloo.ca/~cmacleod/Research/Articles/jepwiseman85.pdf)).  
 We also know that learning words in context is incredibly important.  
-That's why pixmory also adds a sentence for each flashcard (if possible).  
+That's why pixmory is not only downloading pictures for your words but also adds a sentence for each flashcard (if possible).  
 But that's not all. Pixmory also adds the pronounciation (when available) of the word on each flaschard!  
 Finally, pixmory has furigana support when generating decks to Japanese language.
 
@@ -101,6 +101,12 @@ That should work now!
 * Pixmory is not perfect. Be careful. I would say that 98% of the time this is really working well. But it can be messed up with homonyms for instance.
 * The free Forvo API account authorize a limited amount of connections each 24 hours. If you have a lot of words you may need to complete the pixmory deck generation process in multiple days. This is not a big problem, when pixmory keep track of which pronunciation has been downloaded or not. So just restart the script again, let it complete, and hopefully soon you'll have all the pronunciations you need.
 
+## Thanks to
+* [WordReference](http://wordreference.com) for their nice TOTALLY FREE Api.
+* [Forvo](http://www.forvo.com) for their rich database of pronunciations and API.
+* [Fotopedia](http://www.fotopedia.com) for their beautiful pictures
+* Google image search
+* All the open source stuff I used to build pixmory
 
 ## License
 Pixmory is released under the [Do What The Fuck You Want To Public License](http://www.wtfpl.net/) by Sam Hocevar.
