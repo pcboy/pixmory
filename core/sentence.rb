@@ -65,11 +65,6 @@ module Pixmory
       tatoeba = Rtatoeba::Rtatoeba.new(from: @from_lang, to: @to_lang,
                                        query: @from_word)
       sentences = tatoeba.sentences
-      ap @from_lang
-      ap @to_lang
-      ap @from_word
-      ap sentences
-      ap "CACACA"
       # Take the shortest sentence which contains the from_word and to_ word
       shortest_value = sentences.values.sort_by{|x| x[0].length}
                                 .select{|x| x[0].slice(/#{@to_word}/i)}
