@@ -113,6 +113,10 @@ Pixmory is released under the [Do What The Fuck You Want To Public License](http
 
 [![WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net)
 
+## Donating
+If case you feel generous, here is my bitcoin address! :
+14TjdyiCuF22ikG3Rj5pwGj9X1x26PxkRN
+
 ## Contributing!
 
 1. Fork it
