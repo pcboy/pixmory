@@ -32,6 +32,7 @@ require_relative 'core/deck_builder'
 require_relative 'core/sound'
 require_relative 'core/pic'
 require_relative 'core/sentence'
+require_relative 'core/furigana'
 
 module Pixmory
   class Pixmory
@@ -47,16 +48,38 @@ module Pixmory
       open(@wordfile).each_line do |words|
         source, target = words.split(',').map{|x| x.strip}
         next if target.nil? || target.empty?
-        cards << Card.new([source, Pic.new(@deckname, source)],
-                          [target,
-                           Sentence.new(@deckname, @from_lang, @to_lang,
-                                        source, target),
-                           Sound.new(@deckname, target)])
+        cards << Card.new(front(source, target),
+                          back(source, target))
       end
 
       deck = DeckBuilder.new(@deckname, cards)
       deck.save
     end
+
+    private
+
+    def back(source, target)
+      res = [target]
+      if OPTS[:furigana] == true && @to_lang == 'jpn'
+        res << Furi.new(target)
+      end
+      if OPTS[:sentence]
+        res << Sentence.new(@deckname, @from_lang, @to_lang,
+                             source, target)
+      end
+      res << Sound.new(@deckname, target) if OPTS[:pronunciation]
+      res
+    end
+
+    def front(source, target)
+      res = [source]
+      if OPTS[:furigana] == true && @from_lang == 'jpn'
+        res << Furi.new(source)
+      end
+      res << Pic.new(@deckname, source) if OPTS[:pictures]
+      res
+    end
+
   end
 end
 
@@ -70,6 +93,14 @@ OPTS = Trollop::options do
   opt :to_lang, "Destination language in the wordfile" \
     "(e.g eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)",
     :type => String
+  opt :pronunciation, "Use forvo.com pronunciations on cards",
+    :default => true
+  opt :pictures, "Show pictures on cards",
+    :default => true
+  opt :furigana, "Use furiganas on cards (only works with Japanese)",
+    :default => true
+  opt :sentence, "Show sample sentences on cards",
+    :default => true
 end
 
 unless OPTS[:wordfile] && File.exists?(OPTS[:wordfile])

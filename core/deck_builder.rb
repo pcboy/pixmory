@@ -14,7 +14,7 @@ module Pixmory
       File.open(target, "wb") do |f|
         @cards.map do |c|
           c.save
-          f << "#{c.front.join('<br>')}\t#{c.back.join('<br>')}<br>\n"
+          f << "#{c.front.compact.join('<br>')}\t#{c.back.compact.join('<br>')}<br>\n"
         end
       end
     end

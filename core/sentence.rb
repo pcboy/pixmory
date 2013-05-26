@@ -62,8 +62,14 @@ module Pixmory
     end
 
     def sample_sentences
-      tatoeba = Rtatoeba::Rtatoeba.new(from: @from_lang, to: @to_lang, query: @from_word)
+      tatoeba = Rtatoeba::Rtatoeba.new(from: @from_lang, to: @to_lang,
+                                       query: @from_word)
       sentences = tatoeba.sentences
+      ap @from_lang
+      ap @to_lang
+      ap @from_word
+      ap sentences
+      ap "CACACA"
       # Take the shortest sentence which contains the from_word and to_ word
       shortest_value = sentences.values.sort_by{|x| x[0].length}
                                 .select{|x| x[0].slice(/#{@to_word}/i)}
@@ -71,7 +77,7 @@ module Pixmory
       return '' if shortest.nil?
       english = sentences.select{|k,v| v.include?(shortest)}.keys.first
 
-      if @to_lang == 'jpn'
+      if OPTS[:furigana] && @to_lang == 'jpn'
         shortest = Furigana::Formatter::Text.format(shortest,
                                   Furigana::Reader.new.reading(shortest))
       end
