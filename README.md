@@ -76,11 +76,15 @@ How?
 
     pcboy@home pixmory % bundle exec ruby pixmory.rb -h
     Options:
-       --wordfile, -w <s>:   File containing words and their translation comma separated
-       --deckname, -d <s>:   Name of the deck you want to create
-       --from-lang, -f <s>:  Source language in the wordfile(e.g kor,eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
-       --to-lang, -t <s>:    Destination language in the wordfile(e.g eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
-       --help, -h:           Show this message
+                         --wordfile, -w <s>:   File containing words and their translation comma separated
+                         --deckname, -d <s>:   Name of the deck you want to create
+                        --from-lang, -f <s>:   Source language in the wordfile(e.g kor,eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+                          --to-lang, -t <s>:   Destination language in the wordfile(e.g eng, https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+    --pronunciation, --no-pronunciation, -p:   Use forvo.com pronunciations on cards (default: true)
+              --pictures, --no-pictures, -i:   Show pictures on cards (default: true)
+              --furigana, --no-furigana, -u:   Use furiganas on cards (only works with Japanese) (default: true)
+              --sentence, --no-sentence, -s:   Show sample sentences on cards (default: true)
+                                 --help, -h:   Show this message
 
 Example:
     `$> bundle exec ruby pixmory.rb -w translated_words -d deck.korean -f eng -t kor`
