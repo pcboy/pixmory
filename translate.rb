@@ -47,13 +47,19 @@ end
   end
 end
 
-dic = Wordref::Wordref.new(WORDREFERENCE_API_KEY)
+dic = Wordref::Wordref.new(Pixmory::WORDREFERENCE_API_KEY)
 
 translated = []
 open(OPTS[:wordfile]).read.split(',').map do |word|
   puts "->#{word}"
   word.strip!
-  tr_word = dic.translate(from: OPTS[:from_lang], to: OPTS[:to_lang], word: word)
+  # WR can only translate from/to english, make a first step.
+  intermediate = unless [OPTS[:from_lang], OPTS[:to_lang]].include? 'en'
+    dic.translate(from: OPTS[:from_lang], to: 'en', word: word)
+  end
+  tr_word = dic.translate(from: intermediate ? 'en' : OPTS[:from_lang],
+                          to: OPTS[:to_lang],
+                          word: intermediate || word)
   if tr_word.nil?
     warn "No translation found for: #{word}"
   else
