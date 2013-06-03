@@ -14,7 +14,7 @@ module Pixmory
     def save
       target = fullpath
       unless File.exists?(target)
-        ap "#{filename} doesn't exist"
+        puts filename
         if url = pronounciation(@word)
           File.open(target, "wb") do |f|
             ap url

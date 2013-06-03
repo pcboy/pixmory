@@ -32,7 +32,7 @@ module Pixmory
     def save
       target = "#{@deck}/#{@deck}.media/#{filename}"
       unless File.exists?(target)
-        ap "#{filename} doesn't exist"
+        puts filename
         if url = url_for_word(@word)
           File.open(target, "wb") do |f|
             ap url
