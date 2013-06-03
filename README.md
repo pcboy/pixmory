@@ -56,7 +56,7 @@ I'm including a sample\_words text file which contains 346 of the most used basi
 
 I wanted to translate this wordfile to korean, so I basically did:
 
-    $> bundle exec ruby translate.rb -w sample_words -f ko -t ko -o translated_words.korean
+    $> bundle exec ruby translate.rb -w sample_words -f en -t ko -o translated_words.korean
 
 After a few minutes, each word is translated and the sample\_words.korean looks like that:
 
