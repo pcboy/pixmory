@@ -36,11 +36,10 @@ require_relative 'core/furigana'
 
 module Pixmory
   class Pixmory
-    def initialize(wordfile: wordfile, deckname: 'deck',
-                   from_lang: 'eng', to_lang: 'eng')
-      @wordfile = wordfile
-      @deckname = deckname
-      @from_lang, @to_lang = from_lang, to_lang
+    def initialize(params = {})
+      @wordfile = params[:wordfile]
+      @deckname = params[:deckname]
+      @from_lang, @to_lang = params[:from_lang], params[:to_lang]
     end
 
     def start
