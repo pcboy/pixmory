@@ -56,6 +56,7 @@ open(OPTS[:wordfile]).read.split(',').map do |word|
   # WR can only translate from/to english, make a first step.
   intermediate = unless [OPTS[:from_lang], OPTS[:to_lang]].include? 'en'
     dic.translate(from: OPTS[:from_lang], to: 'en', word: word)
+       .gsub(/\(.+\)|,/, ' ').strip.split.first # Clean the result
   end
   tr_word = dic.translate(from: intermediate ? 'en' : OPTS[:from_lang],
                           to: OPTS[:to_lang],
