@@ -20,9 +20,10 @@ module Pixmory
   class Pic
     attr_accessor :word
 
-    def initialize(deckname, word)
+    def initialize(deckname, word, lang)
       @deck = deckname
       @word = word.split('/').first.strip
+      @lang = lang
     end
 
     def to_s
@@ -50,15 +51,17 @@ module Pixmory
     end
 
     def gi_url(word)
-      pics = Google::Search::Image.new(:query => word, :image_size => :large)
-                                 .first(10).shuffle.map(&:uri)
+      pics = Google::Search::Image.new(:query => word, :language => @lang[0..1],
+                                       :image_size => :huge, :type => :photo,
+                                      :safety_level => :high)
+                                 .first(10).map(&:uri)
       pics.map do |pic|
         uri = URI(pic)
         response = begin
           Net::HTTP.start(uri.host, 80) do |http|
               http.request_head uri.path
           end
-        rescue Net::ReadTimeout, Errno::ETIMEDOUT, SocketError
+        rescue Timeout::Error, Errno::ETIMEDOUT, SocketError
           next
         end
         return pic if response && response.code.to_i == 200
@@ -67,6 +70,8 @@ module Pixmory
     end
 
     def url_for_word(word)
+      return gi_url(word) if @lang != 'en' # Fotopedia only works with english
+
       page = begin
                open("http://www.fotopedia.com/wiki/#{URI::escape(word)}").read
              rescue OpenURI::HTTPError

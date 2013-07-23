@@ -17,7 +17,7 @@ It's just the start. A full suite of tools is gonna come in a near future. =)
 
 
 ## Requirements
-* Ruby >= 2.0
+* Ruby >= 1.9
 * Mecab (Optional: For Japanese furigana support. Should be in your package manager)
 * A Wordreference API Key
 * A forvo API Key
@@ -56,7 +56,7 @@ I'm including a sample\_words text file which contains 346 of the most used basi
 
 I wanted to translate this wordfile to korean, so I basically did:
 
-    $> bundle exec ruby translate.rb -w sample_words -f ko -t ko -o translated_words.korean
+    $> bundle exec ruby translate.rb --wordfile sample_words --from-lang en --to-lang ko -o translated_words.korean
 
 After a few minutes, each word is translated and the sample\_words.korean looks like that:
 
@@ -87,7 +87,7 @@ How?
                                  --help, -h:   Show this message
 
 Example:
-    `$> bundle exec ruby pixmory.rb -w translated_words -d deck.korean -f eng -t kor`
+    `$> bundle exec ruby pixmory.rb --wordfile translated_words --deckname deck.korean --from-lang eng --to-lang kor`
 
 After a few minutes in the deck.korean folder, you'll be able to find a few files:
 
