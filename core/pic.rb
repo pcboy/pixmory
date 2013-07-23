@@ -22,7 +22,7 @@ module Pixmory
 
     def initialize(deckname, word)
       @deck = deckname
-      @word = word
+      @word = word.split('/').first.strip
     end
 
     def to_s
