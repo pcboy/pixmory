@@ -56,7 +56,11 @@ module Pixmory
                                       :safety_level => :high)
                                  .first(10).map(&:uri)
       pics.map do |pic|
-        uri = URI(pic)
+        uri = begin
+                URI(pic)
+              rescue URI::InvalidURIError
+                next
+              end
         response = begin
           Net::HTTP.start(uri.host, 80) do |http|
               http.request_head uri.path
