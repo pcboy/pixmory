@@ -58,6 +58,8 @@ I wanted to translate this wordfile to korean, so I basically did:
 
     $> bundle exec ruby translate.rb --wordfile sample_words --from-lang en --to-lang ko -o translated_words.korean
 
+Be careful, the language format is ISO-639-1, so the first *two* letters of the language should be used.
+
 After a few minutes, each word is translated and the sample\_words.korean looks like that:
 
     to work, 일하다
@@ -89,6 +91,8 @@ How?
 Example:
     `$> bundle exec ruby pixmory.rb --wordfile translated_words --deckname deck.korean --from-lang eng --to-lang kor`
 
+Be careful, the language format is ISO-639-2, so the first *three* letters of the language should be used.
+
 After a few minutes in the deck.korean folder, you'll be able to find a few files:
 
     $> ls deck.korean
@@ -118,7 +122,7 @@ Pixmory is released under the [Do What The Fuck You Want To Public License](http
 [![WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net)
 
 ## Donating
-If case you feel generous, here is my bitcoin address! :
+In case you feel generous, here is my bitcoin address! :
 14TjdyiCuF22ikG3Rj5pwGj9X1x26PxkRN
 
 ## Contributing!
