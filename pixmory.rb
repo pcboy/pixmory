@@ -75,7 +75,7 @@ module Pixmory
       if OPTS[:furigana] == true && @from_lang == 'jpn'
         res << Furi.new(source)
       end
-      res << Pic.new(@deckname, source, @from_lang) if OPTS[:pictures]
+      res << Pic.new(@deckname, source, @to_lang) if OPTS[:pictures]
       res
     end
 
