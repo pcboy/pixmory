@@ -123,7 +123,7 @@ Pixmory is released under the [Do What The Fuck You Want To Public License](http
 
 ## Donating
 In case you feel generous, here is my bitcoin address! :
-14TjdyiCuF22ikG3Rj5pwGj9X1x26PxkRN
+[14TjdyiCuF22ikG3Rj5pwGj9X1x26PxkRN](https://blockchain.info/address/14TjdyiCuF22ikG3Rj5pwGj9X1x26PxkRN)
 
 ## Contributing!
 
