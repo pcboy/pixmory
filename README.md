@@ -111,7 +111,7 @@ That should work now!
 * The free Forvo API account authorizes a limited amount of connections each 24 hours. If you have a lot of words you may need to complete the pixmory deck generation process in multiple days. This is not a big problem, pixmory keeps track of which pronunciation has been downloaded or not. So just restart the script again, let it complete, and hopefully soon you'll have all the pronunciations you need.
 
 ## Thanks to
-~~* [WordReference](http://wordreference.com) for their nice TOTALLY FREE Api.~~ Wordreference stopped their API sadly
+* ~~[WordReference](http://wordreference.com) for their nice TOTALLY FREE Api.~~ Wordreference stopped their API sadly
 * [Forvo](http://www.forvo.com) for their rich database of pronunciations and API.  
 * ~~[Fotopedia](http://www.fotopedia.com) for their beautiful pictures~~ Fotopedia closed their service. =(
 * Google image search
