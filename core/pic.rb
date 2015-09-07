@@ -16,8 +16,10 @@
 #  David Hagege <david.hagege@gmail.com>
 #
 
+require_relative 'core_module'
+
 module Pixmory
-  class Pic
+  class Pic < CoreModule
     attr_accessor :word
 
     def initialize(deckname, word, lang)
@@ -32,16 +34,8 @@ module Pixmory
 
     def save
       target = "#{@deck}/#{@deck}.media/#{filename}"
-      unless File.exists?(target)
-        puts filename
-        if url = gi_url(@word)
-          File.open(target, "wb") do |f|
-            ap url
-            attempt(2, 2) {
-              open(url, 'rb') { |rf| f.write(rf.read) }
-            }
-          end
-        end
+      if url = gi_url(@word)
+        save_url(target, url)
       end
     end
 
