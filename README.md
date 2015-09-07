@@ -21,8 +21,7 @@ It's just the start. A full suite of tools is gonna come in a near future. =)
 ## Requirements
 * Ruby >= 1.9
 * Mecab (Optional: For Japanese furigana support. Should be in your package manager)
-* A Wordreference API Key
-* A forvo API Key
+* A forvo API Key (optional, for pronunciations. Costs 1USD/month)
 
 ## Installation
     git clone https://github.com/pcboy/pixmory
