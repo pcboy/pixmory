@@ -14,11 +14,19 @@
 #
 #
 #  David Hagege <david.hagege@gmail.com>
-#
 
-open('test_words', 'w') { |f| f.puts(File.read('sample_words').split(',').take(5).join(',')) }
-puts `bundle exec ruby translate.rb --wordfile test_words --from-lang en --to-lang ko -o translated_test_words.korean`
-raise "can't translate" if File.read('translated_test_words.korean').split("\n").count != 5
+require 'open-uri'
 
-puts `bundle exec ruby pixmory.rb --wordfile translated_test_words.korean --deckname deck.korean --from-lang eng --to-lang kor --no-pronunciation`
-raise "can't build deck" if File.read('deck.korean/deck.korean.txt').split("\n").count != 5
+module Pixmory
+  class CoreModule
+
+    def save_url(filename, url)
+      File.open(filename, "wb") do |f|
+        attempt(2, 2) {
+          open(url, 'rb') { |rf| f.write(rf.read) }
+        }
+      end
+    end
+
+  end
+end

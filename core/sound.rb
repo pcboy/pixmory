@@ -1,7 +1,9 @@
 require 'rforvo'
 
+require_relative 'core_module'
+
 module Pixmory
-  class Sound
+  class Sound < CoreModule
     def initialize(deckname, word)
       @deck = deckname
       @word = word.split('/').first.strip || '' # word1 / word2 can be present. Take first. 
@@ -12,18 +14,9 @@ module Pixmory
     end 
       
     def save
-      target = fullpath
-      unless File.exists?(target)
-        puts filename
-        if url = pronounciation(@word)
-          File.open(target, "wb") do |f|
-            ap url
-            attempt(2, 2) { 
-              open(url, 'rb') { |rf| f.write(rf.read) }
-            }
-          end 
-        end 
-      end 
+      if url = pronunciation(@word)
+        save_url(fullpath, url)
+      end
     end 
       
     private
