@@ -27,14 +27,14 @@ It's just the start. A full suite of tools is gonna come in a near future. =)
     cd pixmory && bundle install
 
 Register to http://api.forvo.com/ to get a Forvo API key (free account available).  
-Go to the [Word reference API registration page](http://www.wordreference.com/docs/APIregistration.aspx) and get an API key (Totally free, thanks WR!)
+~~Go to the [Word reference API registration page](http://www.wordreference.com/docs/APIregistration.aspx) and get an API key (Totally free, thanks WR!)~~
+Wordreference has no API anymore, we are using scraping now. So no API keys are needed.
 
-When you have both, put each one inside config.rb:
+When you have one put it inside config.rb:
 
 ``` ruby
     module Pixmory
       FORVO_API_KEY = ''
-      WORDREFERENCE_API_KEY = ''
     end
 ```
 
@@ -111,9 +111,9 @@ That should work now!
 * The free Forvo API account authorizes a limited amount of connections each 24 hours. If you have a lot of words you may need to complete the pixmory deck generation process in multiple days. This is not a big problem, pixmory keeps track of which pronunciation has been downloaded or not. So just restart the script again, let it complete, and hopefully soon you'll have all the pronunciations you need.
 
 ## Thanks to
-* [WordReference](http://wordreference.com) for their nice TOTALLY FREE Api.
-* [Forvo](http://www.forvo.com) for their rich database of pronunciations and API.
-* [Fotopedia](http://www.fotopedia.com) for their beautiful pictures
+* ~~[WordReference](http://wordreference.com) for their nice TOTALLY FREE Api.~~ Wordreference stopped their API sadly
+* [Forvo](http://www.forvo.com) for their rich database of pronunciations and API.  
+* ~~[Fotopedia](http://www.fotopedia.com) for their beautiful pictures~~ Fotopedia closed their service. =(
 * Google image search
 * All the open source stuff I used to build pixmory
 
@@ -123,7 +123,7 @@ Pixmory is released under the [Do What The Fuck You Want To Public License](http
 [![WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net)
 
 ## Donating
-In case you feel generous, here is my bitcoin address! :
+In case you feel generous, here is a bitcoin address! :
 [14TjdyiCuF22ikG3Rj5pwGj9X1x26PxkRN](https://blockchain.info/address/14TjdyiCuF22ikG3Rj5pwGj9X1x26PxkRN)
 
 ## Contributing!
