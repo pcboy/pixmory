@@ -17,5 +17,4 @@
 
 module Pixmory
   FORVO_API_KEY = ''
-  WORDREFERENCE_API_KEY = ''
 end

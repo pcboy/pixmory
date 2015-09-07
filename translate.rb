@@ -47,7 +47,7 @@ end
   end
 end
 
-dic = Wordref::Wordref.new(Pixmory::WORDREFERENCE_API_KEY)
+dic = Wordref::Wordref.new
 
 translated = []
 open(OPTS[:wordfile]).read.split(',').map do |word|
