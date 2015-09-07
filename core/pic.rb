@@ -34,7 +34,7 @@ module Pixmory
       target = "#{@deck}/#{@deck}.media/#{filename}"
       unless File.exists?(target)
         puts filename
-        if url = url_for_word(@word)
+        if url = gi_url(@word)
           File.open(target, "wb") do |f|
             ap url
             attempt(2, 2) {
@@ -71,22 +71,6 @@ module Pixmory
         return pic if response && response.code.to_i == 200
       end
       nil
-    end
-
-    def url_for_word(word)
-      return gi_url(word) if @lang != 'en' # Fotopedia only works with english
-
-      page = begin
-               open("http://www.fotopedia.com/wiki/#{URI::escape(word)}").read
-             rescue OpenURI::HTTPError
-               return gi_url(word)
-             end
-      links = page.scan(/(http:\/\/[^'"]*images.cdn.fotopedia.com\/[^'"]*)/)
-      if links && !links.empty?
-        links[0][0].gsub(/\\/, '')
-      else
-        gi_url(word)
-      end
     end
 
   end
