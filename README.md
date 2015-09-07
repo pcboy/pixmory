@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/pcboy/pixmory.svg?branch=master)](https://travis-ci.org/pcboy/pixmory)
+[![Code Climate](https://codeclimate.com/github/pcboy/pixmory/badges/gpa.svg)](https://codeclimate.com/github/pcboy/pixmory)
 
 # Pixmory
 
