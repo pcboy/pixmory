@@ -26,7 +26,8 @@ It's just the start. A full suite of tools is gonna come in a near future. =)
     git clone https://github.com/pcboy/pixmory
     cd pixmory && bundle install
 
-Register to http://api.forvo.com/ to get a Forvo API key (free account available).  
+If you don't want to pay for the forvo API, you can use the --no-pronunciation option and skip this step.  
+Register to http://api.forvo.com/ to get a Forvo API key (1USD/month).  
 ~~Go to the [Word reference API registration page](http://www.wordreference.com/docs/APIregistration.aspx) and get an API key (Totally free, thanks WR!)~~
 Wordreference has no API anymore, we are using scraping now. So no API keys are needed.
 
