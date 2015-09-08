@@ -66,10 +66,10 @@ module Pixmory
                                        query: @from_word)
       sentences = tatoeba.sentences
       # Take the shortest sentence which contains the from_word and to_ word
-      shortest_value = sentences.values.sort_by{|x| x[0].length}
-                                .select{|x| x[0].slice(/#{@to_word}/i)}
+      shortest_value = sentences.values.sort_by{|x| x[0] && x[0].length}
+                                .select{|x| x[0] && x[0].slice(/#{@to_word}/i)}
       shortest = shortest_value.flatten.first
-      return '' if shortest.nil?
+      return '' if shortest.nil? || shortest.empty?
       english = sentences.select{|k,v| v.include?(shortest)}.keys.first
 
       if OPTS[:furigana] && @to_lang == 'jpn'
