@@ -48,7 +48,7 @@ When you have one put it inside config.rb:
 Pixmory includes a nice little tool to translate list of words to your target language using WordReference.
 
 I'm including a sample\_words text file which contains 346 of the most used basic and useful words in english (lot of action words, colors, adjectives etc).
-I'm also including a file called NAWL_sorted_by_SFI.txt, containing 963 of the most used words in english, sorted by frequency. (http://www.newacademicwordlist.org/ for more info).
+I'm also including a file called NAWL_sorted_by_SFI.txt, containing 963 of the most used words in academic english, sorted by frequency. (http://www.newacademicwordlist.org/ for more info).
 
     pcboy@home pixmory % bundle exec ruby translate.rb -h 
     Options:
