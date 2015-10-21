@@ -7,16 +7,16 @@ GIT
 
 GIT
   remote: https://github.com/pcboy/rtatoeba.git
-  revision: 6adeb7a09c2b37750607ae226db54ee004958f29
+  revision: caddce2460f4c4c801dbdd4f0aa5b3ec98b11c60
   specs:
-    rtatoeba (0.0.2)
+    rtatoeba (0.0.3)
       mechanize
 
 GIT
   remote: https://github.com/pcboy/wordref.git
-  revision: f895932cc48dc7686a76047af25abdf1009bd91b
+  revision: cb55ab7bc754f8ea2ce638e4d47e3942921e0c97
   specs:
-    wordref (0.0.1)
+    wordref (0.0.3)
       attempt
       multi_json
       nokogiri
@@ -26,11 +26,11 @@ GEM
   specs:
     attempt (0.2.0)
       structured_warnings
-    awesome_print (1.1.0)
-    diff-lcs (1.2.4)
-    domain_name (0.5.24)
+    awesome_print (1.6.1)
+    diff-lcs (1.2.5)
+    domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
-    furigana (0.0.4)
+    furigana (0.0.6)
       diff-lcs
     google-search (1.0.3)
       json
@@ -47,7 +47,7 @@ GEM
       nokogiri (~> 1.4)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
-    mime-types (2.6.1)
+    mime-types (2.6.2)
     mini_portile (0.6.2)
     multi_json (1.11.2)
     net-http-digest_auth (1.4)
@@ -55,8 +55,8 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
-    structured_warnings (0.1.4)
-    trollop (2.0)
+    structured_warnings (0.2.0)
+    trollop (2.1.2)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
