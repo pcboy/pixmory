@@ -36,7 +36,7 @@ GEM
       json
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    json (1.8.0)
+    json (1.8.3)
     maybe (1.1.0)
     mechanize (2.7.3)
       domain_name (~> 0.5, >= 0.5.1)
