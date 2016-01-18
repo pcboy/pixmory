@@ -5,22 +5,6 @@ GIT
     rforvo (0.0.2)
       multi_json
 
-GIT
-  remote: https://github.com/pcboy/rtatoeba.git
-  revision: caddce2460f4c4c801dbdd4f0aa5b3ec98b11c60
-  specs:
-    rtatoeba (0.0.3)
-      mechanize
-
-GIT
-  remote: https://github.com/pcboy/wordref.git
-  revision: cb55ab7bc754f8ea2ce638e4d47e3942921e0c97
-  specs:
-    wordref (0.0.3)
-      attempt
-      multi_json
-      nokogiri
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -38,29 +22,35 @@ GEM
       domain_name (~> 0.5)
     json (1.8.3)
     maybe (1.1.0)
-    mechanize (2.7.3)
+    mechanize (2.7.4)
       domain_name (~> 0.5, >= 0.5.1)
       http-cookie (~> 1.0)
-      mime-types (~> 2.0)
+      mime-types (>= 1.17.2, < 3)
       net-http-digest_auth (~> 1.1, >= 1.1.1)
       net-http-persistent (~> 2.5, >= 2.5.2)
-      nokogiri (~> 1.4)
+      nokogiri (~> 1.6)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
-    mime-types (2.6.2)
-    mini_portile (0.6.2)
+    mime-types (2.99)
+    mini_portile2 (2.0.0)
     multi_json (1.11.2)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
-    nokogiri (1.6.6.2)
-      mini_portile (~> 0.6.0)
+    nokogiri (1.6.7.1)
+      mini_portile2 (~> 2.0.0.rc2)
     ntlm-http (0.1.1)
+    rtatoeba (0.0.4)
+      mechanize
     structured_warnings (0.2.0)
     trollop (2.1.2)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
-    webrobots (0.1.1)
+    webrobots (0.1.2)
+    wordref (0.0.4)
+      attempt
+      multi_json
+      nokogiri
 
 PLATFORMS
   ruby
@@ -73,9 +63,9 @@ DEPENDENCIES
   google-search
   maybe
   rforvo!
-  rtatoeba!
+  rtatoeba
   trollop
-  wordref!
+  wordref
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
