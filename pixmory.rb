@@ -21,8 +21,8 @@
 require 'open-uri'
 require 'awesome_print'
 require 'attempt'
-require 'google-search'
 require 'trollop'
+require 'imgin'
 
 require 'rtatoeba'
 

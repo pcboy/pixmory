@@ -45,26 +45,18 @@ module Pixmory
     end
 
     def gi_url(word)
-      pics = Google::Search::Image.new(:query => word, :language => @lang[0..1],
-                                       :image_size => :huge, :type => :photo,
-                                      :safety_level => :high)
-                                 .first(10).map(&:uri)
-      pics.map do |pic|
-        uri = begin
-                URI(pic)
-              rescue URI::InvalidURIError
-                next
-              end
-        response = begin
-          Net::HTTP.start(uri.host, 80) do |http|
-              http.request_head uri.path
-          end
-        rescue Timeout::Error, Errno::ETIMEDOUT, SocketError
-          next
+      begin
+        pic = "http://#{Imgin::Image.get(word, "medium")}"
+        ap pic
+        return nil if pic == 'http://'
+        uri = URI(pic)
+        response = Net::HTTP.start(uri.host, 80) do |http|
+          http.request_head uri.path
         end
-        return pic if response && response.code.to_i == 200
+        return uri.to_s if response && response.code.to_i == 200 
+      rescue URI::InvalidURIError, Timeout::Error, Errno::ETIMEDOUT, SocketError, Errno::ECONNREFUSED
+        retry
       end
-      nil
     end
 
   end

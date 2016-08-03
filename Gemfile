@@ -9,4 +9,4 @@ gem 'trollop'
 gem 'furigana'
 gem 'diff-lcs' # For furigana
 gem 'attempt'
-gem 'google-search'
+gem 'imgin'
