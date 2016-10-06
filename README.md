@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/pcboy/pixmory.svg?branch=master)](https://travis-ci.org/pcboy/pixmory)
 [![Code Climate](https://codeclimate.com/github/pcboy/pixmory/badges/gpa.svg)](https://codeclimate.com/github/pcboy/pixmory)
+[![codebeat badge](https://codebeat.co/badges/3c545b68-ea51-4322-8778-ec02d16721c9)](https://codebeat.co/projects/github-com-pcboy-pixmory)
 
 # Pixmory
 
