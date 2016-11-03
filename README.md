@@ -21,7 +21,7 @@ It's just the start. A full suite of tools is gonna come in a near future. =)
 
 
 ## Requirements
-* Ruby >= 1.9
+* Ruby >= 2.0
 * Mecab (Optional: For Japanese furigana support. Should be in your package manager)
 * A forvo API Key (optional, for pronunciations. Costs 1USD/month)
 
@@ -29,18 +29,8 @@ It's just the start. A full suite of tools is gonna come in a near future. =)
     git clone https://github.com/pcboy/pixmory
     cd pixmory && bundle install
 
-If you don't want to pay for the forvo API, you can use the --no-pronunciation option and skip this step.  
-Register to http://api.forvo.com/ to get a Forvo API key (1USD/month).  
 ~~Go to the [Word reference API registration page](http://www.wordreference.com/docs/APIregistration.aspx) and get an API key (Totally free, thanks WR!)~~
 Wordreference has no API anymore, we are using scraping now. So no API keys are needed.
-
-When you have one put it inside config.rb:
-
-``` ruby
-    module Pixmory
-      FORVO_API_KEY = ''
-    end
-```
 
 ## Usage
 

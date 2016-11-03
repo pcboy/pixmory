@@ -23,7 +23,6 @@ require 'uri'
 require 'awesome_print'
 require 'trollop'
 
-require_relative 'config'
 
 OPTS = Trollop::options do
   opt :wordfile, "File containing comma separated words to translate.",

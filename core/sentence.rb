@@ -26,7 +26,7 @@ module Pixmory
                    from_word = '', to_word = '')
       @deck = deckname
       @from_lang, @to_lang = from_lang, to_lang
-      @from_word = from_word
+      @from_word = from_word.split('/').first.strip
       @to_word = to_word.split('/').first.strip || ''
     end
 
@@ -58,7 +58,7 @@ module Pixmory
     end
 
     def filename
-      "pixmory-#{@deck}-sentence-#{CGI::escape(@from_word)}.txt"
+      "pixmory-#{@deck}-sentence-#{URI::escape(@from_word)}.txt"
     end
 
     def sample_sentences

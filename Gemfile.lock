@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pcboy/rforvo.git
-  revision: fa34d7896868b4e9e429d05111f5c9fa90723a7b
+  revision: 544a43c697cc4d842faf475db9c9ebe0ff127ac7
   specs:
     rforvo (0.0.2)
       multi_json
@@ -12,26 +12,28 @@ GEM
       structured_warnings
     awesome_print (1.7.0)
     diff-lcs (1.2.5)
-    domain_name (0.5.20160615)
+    domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
     furigana (0.0.6)
       diff-lcs
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
     imgin (0.0.2)
       nokogiri (= 1.6.1)
       rspec (= 2.14.1)
     maybe (1.1.0)
-    mechanize (2.7.4)
+    mechanize (2.7.5)
       domain_name (~> 0.5, >= 0.5.1)
       http-cookie (~> 1.0)
-      mime-types (>= 1.17.2, < 3)
+      mime-types (>= 1.17.2)
       net-http-digest_auth (~> 1.1, >= 1.1.1)
       net-http-persistent (~> 2.5, >= 2.5.2)
       nokogiri (~> 1.6)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
-    mime-types (2.99.2)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
     mini_portile (0.5.3)
     multi_json (1.12.1)
     net-http-digest_auth (1.4)
@@ -47,7 +49,7 @@ GEM
     rspec-expectations (2.14.5)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.6)
-    rtatoeba (0.0.4)
+    rtatoeba (1.0.2)
       mechanize
     structured_warnings (0.2.0)
     trollop (2.1.2)
@@ -76,4 +78,4 @@ DEPENDENCIES
   wordref
 
 BUNDLED WITH
-   1.12.4
+   1.13.1

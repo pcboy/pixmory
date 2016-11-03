@@ -26,7 +26,6 @@ require 'imgin'
 
 require 'rtatoeba'
 
-require_relative 'config'
 require_relative 'core/card'
 require_relative 'core/deck_builder'
 require_relative 'core/sound'
@@ -66,7 +65,7 @@ module Pixmory
         res << Sentence.new(@deckname, @from_lang, @to_lang,
                              source, target)
       end
-      res << Sound.new(@deckname, target) if OPTS[:pronunciation]
+      res << Sound.new(@deckname, target, @to_lang) if OPTS[:pronunciation]
       res
     end
 

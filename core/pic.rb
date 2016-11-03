@@ -34,19 +34,22 @@ module Pixmory
 
     def save
       target = "#{@deck}/#{@deck}.media/#{filename}"
-      if url = gi_url(@word)
-        save_url(target, url)
+      puts "TARGET: #{target}"
+      unless File.exists?(target)
+        if url = gi_url(@word)
+          save_url(target, url)
+        end
       end
     end
 
     private
     def filename
-      "pixmory-#{@deck}-#{CGI::escape(@word)}.jpg"
+      "pixmory-#{@deck}-#{URI::escape(@word)}.jpg"
     end
 
     def gi_url(word)
       begin
-        pic = "http://#{Imgin::Image.get(word, "medium")}"
+        pic = "http://#{Imgin::Image.get(URI::escape(word), "medium")}"
         ap pic
         return nil if pic == 'http://'
         uri = URI(pic)
@@ -54,7 +57,8 @@ module Pixmory
           http.request_head uri.path
         end
         return uri.to_s if response && response.code.to_i == 200 
-      rescue URI::InvalidURIError, Timeout::Error, Errno::ETIMEDOUT, SocketError, Errno::ECONNREFUSED
+      rescue URI::InvalidURIError, Timeout::Error, Errno::ETIMEDOUT, SocketError, Errno::ECONNREFUSED => e
+        STDERR.puts e.message
         retry
       end
     end

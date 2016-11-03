@@ -4,7 +4,8 @@ require_relative 'core_module'
 
 module Pixmory
   class Sound < CoreModule
-    def initialize(deckname, word)
+    def initialize(deckname, word, lang)
+      @lang = lang[0...-1] # kor -> ko
       @deck = deckname
       @word = word.split('/').first.strip || '' # word1 / word2 can be present. Take first. 
     end
@@ -14,8 +15,10 @@ module Pixmory
     end 
       
     def save
-      if url = pronunciation(@word)
-        save_url(fullpath, url)
+      unless File.exists?(fullpath)
+        if url = pronunciation(@word)
+          save_url(fullpath, url)
+        end
       end
     end 
       
@@ -26,12 +29,12 @@ module Pixmory
     end
 
     def filename
-      "pixmory-#{@deck}-#{CGI::escape(@word)}.mp3"
+      "pixmory-#{@deck}-#{URI::escape(@word)}.mp3"
     end 
       
-    def pronounciation(word)
-      forv = Rforvo::Rforvo.new(FORVO_API_KEY)
-      forv.standard_pronounciation(word)
+    def pronunciation(word)
+      forv = Rforvo::Rforvo.new(@lang)
+      forv.standard_pronunciation(word)
     end
   end
 end
