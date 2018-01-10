@@ -1,16 +1,16 @@
 GIT
   remote: https://github.com/pcboy/rforvo.git
-  revision: a53f225195a3e349a7844316f1ce15ff9257ca37
+  revision: df6269188295baebec84192ea722d5065f955861
   specs:
-    rforvo (0.0.2)
-      multi_json (~> 1.13)
+    rforvo (0.0.4)
+      multi_json (~> 1.12)
 
 GIT
   remote: https://github.com/pcboy/wordref.git
-  revision: a05840d4447f5044618ef366b7a86b8a5e8d644b
+  revision: edea9de5aef7b56f8965b55efc5e0e6d6abeb75b
   specs:
-    wordref (0.0.6)
-      attempt (~> 0.3)
+    wordref (0.0.7)
+      attempt (= 0.3)
       multi_json (~> 1.12)
       nokogiri (~> 1.6)
 
