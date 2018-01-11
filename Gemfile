@@ -9,4 +9,4 @@ gem 'trollop'
 gem 'furigana'
 gem 'diff-lcs' # For furigana
 gem 'attempt', '0.3'
-gem 'imgin'
+gem 'imgin', :git => 'https://github.com/pcboy/imgin.git', branch: 'update-nokogiri'

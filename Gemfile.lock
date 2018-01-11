@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/pcboy/imgin.git
+  revision: 12318ad01932e35ed7df845006a31c1e8296747e
+  branch: update-nokogiri
+  specs:
+    imgin (0.0.2)
+      nokogiri (~> 1.8)
+      rspec (= 2.14.1)
+
+GIT
   remote: https://github.com/pcboy/rforvo.git
   revision: df6269188295baebec84192ea722d5065f955861
   specs:
@@ -7,12 +16,12 @@ GIT
 
 GIT
   remote: https://github.com/pcboy/wordref.git
-  revision: edea9de5aef7b56f8965b55efc5e0e6d6abeb75b
+  revision: d8c493e2d6a147ec88edf56883c93266c80fc123
   specs:
     wordref (0.0.7)
       attempt (= 0.3)
       multi_json (~> 1.12)
-      nokogiri (~> 1.6)
+      nokogiri (~> 1.8)
 
 GEM
   remote: https://rubygems.org/
@@ -27,9 +36,6 @@ GEM
       diff-lcs
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    imgin (0.0.2)
-      nokogiri (= 1.6.1)
-      rspec (= 2.14.1)
     maybe (1.1.0)
     mechanize (2.7.5)
       domain_name (~> 0.5, >= 0.5.1)
@@ -43,12 +49,12 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile (0.5.3)
-    multi_json (1.13.0)
+    mini_portile2 (2.3.0)
+    multi_json (1.13.1)
     net-http-digest_auth (1.4.1)
     net-http-persistent (2.9.4)
-    nokogiri (1.6.1)
-      mini_portile (~> 0.5.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     ntlm-http (0.1.1)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -75,7 +81,7 @@ DEPENDENCIES
   awesome_print
   diff-lcs
   furigana
-  imgin
+  imgin!
   maybe
   rforvo!
   rtatoeba (>= 1.0.2)
@@ -83,4 +89,4 @@ DEPENDENCIES
   wordref!
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
